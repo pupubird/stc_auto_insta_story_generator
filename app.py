@@ -6,6 +6,8 @@ from generate_story import output_cert
 from keywords_extract import get_topic
 from generate_short_link import generate_short_link
 
+INVOLED_DAY = 0
+
 
 def generate(index):
     entry = NewsFeed.entries[index]
@@ -48,8 +50,15 @@ NewsFeed = feedparser.parse(
     "http://feeds.feedburner.com/TechCrunch/")
 
 titles = []
-amount = 5 if len(NewsFeed.entries) >= 5 else len(NewsFeed.entries)
-for i in range(amount):
-    titles.append(NewsFeed.entries[i].title)
-index = get_topic(titles)
-generate(index)
+amount = 0
+try:
+    for entry in NewsFeed.entries:
+        arr = entry.published.split(" ")
+        if int(arr[1]) >= date.today().day - INVOLED_DAY:
+            amount += 1
+    for i in range(amount):
+        titles.append(NewsFeed.entries[i].title)
+    index = get_topic(titles)
+    generate(index)
+except TypeError:
+    print("No news for now, try to adjust INVOLED_DAY more than or equal to 1 to include yesterday news (2 days ago if adjusted to 2)")
