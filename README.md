@@ -20,4 +20,4 @@
 
 3. The highest weight of the title wins
 
-4. generate the instagram story based on the news
+4. generate the instagram story based on the news into folder output/
