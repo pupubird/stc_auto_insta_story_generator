@@ -18,8 +18,8 @@ def output_cert(title, val, line_length):
     text_width, text_height = font.getsize(val)
     draw.text((50, (img_height/2)-(text_height*(line_length)/2)),
               val, (0, 0, 0), font=font)
-    draw.text((50, 50),
-              title, (0, 0, 0), font=font)
+    draw.text((20, 0),
+              title, (171, 171, 171), font=font)
     img.save(f'output/{title}.png')
     print(f'Generated {title}')
 

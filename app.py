@@ -1,8 +1,10 @@
 import feedparser
 import textwrap
+from datetime import date
 from bs4 import BeautifulSoup
 from generate_story import output_cert
 from keywords_extract import get_topic
+from generate_short_link import generate_short_link
 
 
 def generate(index):
@@ -13,11 +15,19 @@ def generate(index):
     link = textwrap.wrap(entry.link, width=35)
 
     output_title, output_link, output_text = "", "", ""
-
     for i in title:
         output_title += i+"\n"
     for i in link:
         output_link += i + "\n"
+
+    key = ""
+    with open("api_key.txt", 'r')as f:
+        key = f.read().replace(" ", "").replace("\n", "")
+
+    res = generate_short_link(
+        entry.link, key, 'stc-insta-'+str(date.today().month)+"-"+str(date.today().day))
+    output_link = res['url'].get('shortLink', output_link)
+
     output_link = "Read more on: \n"+output_link
 
     paragraphs = soup.get_text().split(". ")
@@ -38,7 +48,8 @@ NewsFeed = feedparser.parse(
     "http://feeds.feedburner.com/TechCrunch/")
 
 titles = []
-for entry in NewsFeed.entries:
-    titles.append(entry.title)
+amount = 5 if len(NewsFeed.entries) >= 5 else len(NewsFeed.entries)
+for i in range(amount):
+    titles.append(NewsFeed.entries[i].title)
 index = get_topic(titles)
 generate(index)
