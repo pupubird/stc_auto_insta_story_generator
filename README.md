@@ -4,6 +4,8 @@
 
 `python app.py`
 
+![sample](sample/sample.png)
+
 ## Pre-requisite
 
 1. get [cutt.ly api key](https://cutt.ly/cuttly-api)
