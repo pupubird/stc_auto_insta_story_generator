@@ -27,10 +27,11 @@ def generate(index):
         key = f.read().replace(" ", "").replace("\n", "")
 
     res = generate_short_link(
-        entry.link, key, 'stc-insta-'+str(date.today().month)+"-"+str(date.today().day))
+        entry.link, key, 'stc-insta-story-'+str(date.today().month)+"-"+str(date.today().day))
     output_link = res['url'].get('shortLink', output_link)
 
-    output_link = "Read more on: \n"+output_link
+    output_link = "Read more on: \n"+output_link + \
+        "\n"+"(or you may dm us to get the link!)"
 
     paragraphs = soup.get_text().split(". ")
     text_len = 0
@@ -46,8 +47,7 @@ def generate(index):
     output_cert('summary', output_text, text_len)
 
 
-NewsFeed = feedparser.parse(
-    "http://feeds.feedburner.com/TechCrunch/")
+NewsFeed = feedparser.parse("https://www.techrepublic.com/rssfeeds/articles/")
 
 titles = []
 amount = 0
