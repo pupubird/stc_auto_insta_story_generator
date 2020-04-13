@@ -6,15 +6,15 @@ from generate_story import output_cert
 from keywords_extract import get_topic
 from generate_short_link import generate_short_link
 
-INVOLED_DAY = 0
+INVOLED_DAY = 1
 
 
 def generate(index):
     entry = NewsFeed.entries[index]
     soup = BeautifulSoup(
         entry.summary_detail['value'].encode('utf-8'), 'html.parser')
-    title = textwrap.wrap(entry.title, width=35)
-    link = textwrap.wrap(entry.link, width=35)
+    title = textwrap.wrap(entry.title, width=40)
+    link = textwrap.wrap(entry.link, width=40)
 
     output_title, output_link, output_text = "", "", ""
     for i in title:
@@ -35,7 +35,7 @@ def generate(index):
     paragraphs = soup.get_text().split(". ")
     text_len = 0
     for paragraph in paragraphs:
-        text = textwrap.wrap(paragraph, width=35)
+        text = textwrap.wrap(paragraph, width=40)
         text_len += len(text)
         for i in text:
             output_text += i + "\n"
