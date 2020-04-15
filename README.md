@@ -2,7 +2,11 @@
 
 `pip install -r requirements.txt`
 
-`python app.py`
+`python tech_news_story.py`
+
+If you want to generate daily algorithm instead:
+
+`python algorithm_story.py`
 
 ![sample](sample/sample.png)
 
