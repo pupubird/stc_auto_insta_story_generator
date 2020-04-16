@@ -31,7 +31,7 @@ def generate(index):
     output_link = res['url'].get('shortLink', output_link)
 
     output_link = "Read more on: \n"+output_link + \
-        "\n"+"(or you may dm us to get the link!)"
+        "\n"+"(or get the link in our bio!)"
 
     paragraphs = soup.get_text().split(". ")
     text_len = 0
@@ -45,6 +45,10 @@ def generate(index):
     output_cert('title', output_title, len(title))
     output_cert('link', output_link, len(link))
     output_cert('summary', output_text, text_len)
+
+    link = open("output_link.txt", "w")
+    link.write(output_link)
+    link.close()
 
 
 NewsFeed = feedparser.parse("https://www.techrepublic.com/rssfeeds/articles/")

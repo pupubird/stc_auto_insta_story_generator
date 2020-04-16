@@ -44,11 +44,15 @@ def generate():
         output_link += i + "\n"
 
     output_link = "Read more on: \n"+output_link + \
-        "(or you may dm us to get the link!)"
+        "(or get the link in our bio!)"
     output_title = "Today's algorithm:\n" + output_title
     output_cert('title', output_title, title_len)
     output_cert('link', output_link, link_len)
     output_cert('summary', output_text, text_len)
+
+    link = open("output_link.txt", "w")
+    link.write(output_link)
+    link.close()
 
 
 def get_algorithm():
