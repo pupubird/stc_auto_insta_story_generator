@@ -1,6 +1,24 @@
 # Instagram story generator
 
+Checkout [instagram story poster bot](https://github.com/mrbeels/instagram-story-poster-bot)
+
+## Steps
+
+### 1) Install dependency
+
 `pip install -r requirements.txt`
+
+`npm i`
+
+### 2) Enter username & password in 'credentials.txt'
+
+Ensure the separation of details with ',' as with the following format
+
+```txt
+username,password
+```
+
+### 3) Generate story
 
 `python tech_news_story.py`
 
@@ -9,6 +27,10 @@ If you want to generate daily algorithm instead:
 `python algorithm_story.py`
 
 ![sample](sample/sample.png)
+
+### 4) upload
+
+`node app.js`
 
 ## Pre-requisite
 
