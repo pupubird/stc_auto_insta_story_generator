@@ -3,3 +3,4 @@ bs4==0.0.1
 feedparser==5.2.1
 Pillow==7.1.1
 retinasdk==1.0.0
+requests
