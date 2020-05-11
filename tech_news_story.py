@@ -30,7 +30,7 @@ def generate(index):
         link, key)
     output_link = res['shortenedLink'] or link
 
-    output_link = "Read more on: \n"+output_link + \
+    output_link = "Read more on: \n"+"https://insta.sunwaytechclub.org/"+output_link + \
         "\n"+"(or you may dm us to get the link!)"
 
     paragraphs = soup.get_text().split(". ")

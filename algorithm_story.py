@@ -38,16 +38,17 @@ def generate():
         output_title += i + "\n"
     output_title += "\n"
 
-    link = textwrap.wrap(link, width=40)
+    link = textwrap.wrap(output_link, width=40)
     link_len = len(link)
+    result_link = ""
     for i in link:
-        output_link += i + "\n"
+        result_link += i + "\n"
 
-    output_link = "Read more on: \n"+output_link + \
+    styled_link = "Read more on: \n"+"https://insta.sunwaytechclub.org/"+result_link + \
         "(or you may dm us to get the link!)"
     output_title = "Today's algorithm:\n" + output_title
     output_cert('title', output_title, title_len)
-    output_cert('link', output_link, link_len)
+    output_cert('link', styled_link, link_len)
     output_cert('summary', output_text, text_len)
 
 

@@ -10,4 +10,4 @@ def generate_short_link(url, key):
     }
     res = requests.post(shorterner, json=obj)
     res_json = res.json()
-    return res
+    return res_json
