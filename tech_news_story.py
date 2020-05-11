@@ -26,9 +26,8 @@ def generate(index):
     with open("api_key.txt", 'r')as f:
         key = f.read().replace(" ", "").replace("\n", "")
 
-    res = generate_short_link(
-        entry.link, key, 'stc-insta-story-'+str(date.today().month)+"-"+str(date.today().day))
-    output_link = res['url'].get('shortLink', output_link)
+    res = generate_short_link(entry.link, key)
+    output_link = res.get('shorternedLink', output_link)
 
     output_link = "Read more on: \n"+output_link + \
         "\n"+"(or you may dm us to get the link!)"

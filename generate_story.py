@@ -2,7 +2,7 @@ import os
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
-TEXT_SIZE = 25
+TEXT_SIZE = 50
 TEMPLATE_IMG = "Instagram.png"
 NAME_LIST_TXT = "participants_name.txt"
 FONT_TTF_FILE = "Arial.ttf"

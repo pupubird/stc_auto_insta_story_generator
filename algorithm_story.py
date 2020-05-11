@@ -21,8 +21,8 @@ def generate():
         key = f.read().replace(" ", "").replace("\n", "")
 
     res = generate_short_link(
-        link, key, 'stc-insta-story-'+str(date.today().month)+"-"+str(date.today().day))
-    output_short_link = res['url'].get('shortLink', link)
+        link, key)
+    output_short_link = res.get('shorternedLink', link)
 
     paragraph = text
     text_len = 0
