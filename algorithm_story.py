@@ -22,7 +22,7 @@ def generate():
 
     res = generate_short_link(
         link, key)
-    output_short_link = res.get('shorternedLink', link)
+    output_link = res['shortenedLink'] or link
 
     paragraph = text
     text_len = 0
