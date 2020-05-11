@@ -2,11 +2,11 @@ import feedparser
 import textwrap
 from datetime import date
 from bs4 import BeautifulSoup
-from generate_story import output_cert
+from generate_story import output_story
 from keywords_extract import get_topic
 from generate_short_link import generate_short_link
 
-INVOLED_DAY = 2
+INVOLED_DAY = 5
 
 
 def generate(index):
@@ -14,24 +14,27 @@ def generate(index):
     soup = BeautifulSoup(
         entry.summary_detail['value'].encode('utf-8'), 'html.parser')
     title = textwrap.wrap(entry.title, width=40)
-    link = textwrap.wrap(entry.link, width=40)
 
     output_title, output_link, output_text = "", "", ""
     for i in title:
         output_title += i+"\n"
-    for i in link:
-        output_link += i + "\n"
 
     key = ""
     with open("api_key.txt", 'r')as f:
         key = f.read().replace(" ", "").replace("\n", "")
 
     res = generate_short_link(
-        link, key)
-    output_link = res['shortenedLink'] or link
+        entry.link, key)
+    output_link = res['shortenedLink']
 
-    output_link = "Read more on: \n"+"https://insta.sunwaytechclub.org/"+output_link + \
-        "\n"+"(or you may dm us to get the link!)"
+    link = textwrap.wrap(output_link, width=40)
+    link_len = len(link)
+    result_link = ""
+    for i in link:
+        result_link += i + "\n"
+
+    styled_link = "Read more on: \n"+"https://insta.sunwaytechclub.org/"+result_link + \
+        "(or you may dm us to get the link!)"
 
     paragraphs = soup.get_text().split(". ")
     text_len = 0
@@ -42,9 +45,9 @@ def generate(index):
             output_text += i + "\n"
         output_text += "\n"
 
-    output_cert('title', output_title, len(title))
-    output_cert('link', output_link, len(link))
-    output_cert('summary', output_text, text_len)
+    output_story('title', output_title, len(title))
+    output_story('link', styled_link, link_len)
+    output_story('summary', output_text, text_len)
 
 
 NewsFeed = feedparser.parse("https://www.techrepublic.com/rssfeeds/articles/")

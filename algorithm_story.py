@@ -2,7 +2,7 @@ import feedparser
 import textwrap
 from datetime import date
 from bs4 import BeautifulSoup
-from generate_story import output_cert
+from generate_story import output_story
 from keywords_extract import get_topic
 from generate_short_link import generate_short_link
 import csv
@@ -47,9 +47,9 @@ def generate():
     styled_link = "Read more on: \n"+"https://insta.sunwaytechclub.org/"+result_link + \
         "(or you may dm us to get the link!)"
     output_title = "Today's algorithm:\n" + output_title
-    output_cert('title', output_title, title_len)
-    output_cert('link', styled_link, link_len)
-    output_cert('summary', output_text, text_len)
+    output_story('title', output_title, title_len)
+    output_story('link', styled_link, link_len)
+    output_story('summary', output_text, text_len)
 
 
 def get_algorithm():

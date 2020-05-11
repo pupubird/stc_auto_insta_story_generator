@@ -8,7 +8,7 @@ NAME_LIST_TXT = "participants_name.txt"
 FONT_TTF_FILE = "Arial.ttf"
 
 
-def output_cert(title, val, line_length):
+def output_story(title, val, line_length):
     img = Image.open(TEMPLATE_IMG)
     draw = ImageDraw.Draw(img)
     # font = ImageFont.truetype(<font-file>, <font-size>)
@@ -16,7 +16,7 @@ def output_cert(title, val, line_length):
     # draw.text((x, y),"Sample Text",(r,g,b))
     img_width, img_height = img.size
     text_width, text_height = font.getsize(val)
-    draw.text((80, (img_height/2)-(text_height*(line_length)/2)),
+    draw.text((80, (img_height/2)-(text_height*(line_length))),
               val, (0, 0, 0), font=font)
     draw.text((70, 180),
               title, (171, 171, 171), font=font)
