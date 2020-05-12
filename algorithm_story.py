@@ -44,7 +44,7 @@ def generate():
     for i in link:
         result_link += i + "\n"
 
-    styled_link = "Read more on: \n"+"https://insta.sunwaytechclub.org/"+result_link + \
+    styled_link = "Read more on: \n"+"https://link.sunwaytechclub.org/to/"+result_link + \
         "(or you may dm us to get the link!)"
     output_title = "Today's algorithm:\n" + output_title
     output_story('title', output_title, title_len)

@@ -33,7 +33,7 @@ def generate(index):
     for i in link:
         result_link += i + "\n"
 
-    styled_link = "Read more on: \n"+"https://insta.sunwaytechclub.org/"+result_link + \
+    styled_link = "Read more on: \n"+"https://link.sunwaytechclub.org/to/"+result_link + \
         "(or you may dm us to get the link!)"
 
     paragraphs = soup.get_text().split(". ")
