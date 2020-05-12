@@ -34,7 +34,7 @@ If you want to generate daily algorithm instead:
 
 ## Pre-requisite
 
-Since we will be using [sunway tech club's own link shortener](https://insta.sunwaytechclub.org/shorten), we will need
+Since we will be using [sunway tech club's own link shortener](https://link.sunwaytechclub.org/), we will need
 
 1. get api key
 
