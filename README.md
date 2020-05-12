@@ -34,9 +34,9 @@ If you want to generate daily algorithm instead:
 
 ## Pre-requisite
 
-1. get [cutt.ly api key](https://cutt.ly/cuttly-api)
+Since we will be using [sunway tech club's own link shortener](https://insta.sunwaytechclub.org/shorten), we will need
 
-    - The API is available only to registered users. API key can be generate in account edit page
+1. get api key
 
 2. paste the api key in the api_key.txt directly, save it.
 
