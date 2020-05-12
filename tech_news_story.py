@@ -61,7 +61,12 @@ try:
             amount += 1
     for i in range(amount):
         titles.append(NewsFeed.entries[i].title)
+        print(f"News {i}: "+NewsFeed.entries[i].title)
     index = get_topic(titles)
+    print("\nChoosing: " + NewsFeed.entries[index].title)
+    inp = input(
+        "Is it okay? enter to continue, else, type the index number:\n> ")
+    index = int(inp) if not inp == "" else index
     generate(index)
 except TypeError:
     print("No news for now, try to adjust INVOLED_DAY more than or equal to 1 to include yesterday news (2 days ago if adjusted to 2)")
