@@ -6,7 +6,7 @@ from generate_story import output_story
 from keywords_extract import get_topic
 from generate_short_link import generate_short_link
 
-INVOLED_DAY = 5
+INVOLED_DAY = 1
 
 
 def generate(index):
