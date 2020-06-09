@@ -170,6 +170,8 @@ const credentials = text.split(",");
       path: "log.png",
     });
 
+    await page.waitFor(5 * 1000);
+
     console.log("Posted link.png");
 
     await browser.close();
