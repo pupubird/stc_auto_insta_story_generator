@@ -1,6 +1,6 @@
 beautifulsoup4==4.9.0
 bs4==0.0.1
 feedparser==5.2.1
-Pillow==7.1.1
+Pillow==8.2.0
 retinasdk==1.0.0
 requests
